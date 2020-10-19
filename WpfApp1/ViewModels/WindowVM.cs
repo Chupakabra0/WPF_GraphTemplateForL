@@ -34,8 +34,8 @@ namespace WpfApp1 {
         private LineSeries CreateLine(IEnumerable<Tuple<double, double>> dotsList, OxyColor color, string title) {
             var line = new LineSeries { Color = color, Title = title };
 
-            foreach (var (x, y) in dotsList) {
-                line.Points.Add(new DataPoint(x, y));
+            foreach (var xy in dotsList) {
+                line.Points.Add(new DataPoint(xy.Item1, xy.Item2));
             }
 
             return line;
