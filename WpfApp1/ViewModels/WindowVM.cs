@@ -8,20 +8,20 @@ namespace WpfApp1 {
     public class WindowVM : BaseVM {
         public WindowVM() {
             this.model = new PlotModel { Title = "ФАК ЭТА ХУЙНЯ РАБОТАЕТ!" };
-            this.collection = new ObservableCollection<Tuple<double, double>> {
+            this.Collection = new ObservableCollection<Tuple<double, double>> {
                 new Tuple<double, double>(0.0, 0.0),
                 new Tuple<double, double>(0.5, 2.0),
                 new Tuple<double, double>(1.0, 3.0),
                 new Tuple<double, double>(2.0, -4.0),
                 new Tuple<double, double>(1.0, 1.0)
             };
-            this.model.Series.Add(this.CreateLine(this.collection, OxyColor.FromRgb(255, 0, 0), "Прямая"));
+            this.model.Series.Add(this.CreateLine(this.Collection, OxyColor.FromRgb(255, 0, 0), "Прямая"));
         }
 
         public PlotModel model { get; set; }
 
         // Тут твои точки, которые ты получила после метода Рунге-Кутты 
-        public ObservableCollection<Tuple<double, double>> collection { get; set; }
+        public ObservableCollection<Tuple<double, double>> Collection { get; set; }
         public double                                      X0         { get; set; }
         public double                                      Y0         { get; set; }
         public double                                      H          { get; set; }

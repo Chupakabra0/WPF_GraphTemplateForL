@@ -13,7 +13,25 @@
     </Window.DataContext>
 
     <Grid Margin="10">
-        <oxy:PlotView Grid.Row="0" Model="{Binding model}"></oxy:PlotView>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <oxy:PlotView Grid.Row="0" Model="{Binding model}"></oxy:PlotView>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <DataGrid ItemsSource="{Binding Collection}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="X" Binding="{Binding Item1}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Y" Binding="{Binding Item2}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
     </Grid>
 
 </Window>
