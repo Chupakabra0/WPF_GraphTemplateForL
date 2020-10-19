@@ -15,7 +15,7 @@
     <Grid Margin="10">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -23,15 +23,26 @@
             <oxy:PlotView Grid.Row="0" Model="{Binding model}"></oxy:PlotView>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <DataGrid ItemsSource="{Binding Collection}" AutoGenerateColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="X" Binding="{Binding Item1}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Y" Binding="{Binding Item2}"></DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
+        <Grid Grid.Row="1" VerticalAlignment="Center">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
+            <Grid Grid.Column="0" Margin="10 0">
+                <DataGrid ItemsSource="{Binding Collection}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="X" Binding="{Binding Item1}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Y" Binding="{Binding Item2}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="20 50">
+                <Button Content="PRESS ME!" Command="{Binding PressMe}"></Button>
+            </Grid>
+        </Grid>
     </Grid>
 
 </Window>
